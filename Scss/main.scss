@@ -1,0 +1,137 @@
+@import '_resets';
+@import '_variables';
+@import '_mixin';
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Outfit:wght@600&family=Red+Hat+Display:wght@500;700;900&display=swap');
+body {
+  font-family: 'Red Hat Display', sans-serif;
+  background-color: $pale-blue;
+  @include flex-center(row, center, center);
+  font-size: 16px;
+  min-height: 100vh;
+}
+.container {
+  max-width: $mobile-width;
+  margin: 0 auto;
+  .wrapper {
+    margin: 2rem 1rem;
+    border-radius: 15px;
+    background-color: $card-bg;
+    .illustration-hero {
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 15px 15px 0px 0px;
+    }
+    .order-summary {
+      text-align: center;
+      margin: 20px 36px 20px 36px;
+      // padding: 10px 15px 1px 15px;
+      h2 {
+        color: $dark-blue;
+        font-weight: map-get($map: $font-weights, $key: black-900);
+        // margin-top: 10px;
+      }
+      p {
+        margin-top: 20px;
+        line-height: 26px;
+        color: $desaturated-blue;
+        font-weight: map-get($map: $font-weights, $key: medium-500);
+      }
+    }
+    .flex {
+      background-color: $very-pale-blue;
+      @include flex-center(row, space-around, space-between);
+      padding: 18px 15px;
+      margin: 1px 25px 25px 25px;
+      border-radius: 10px;
+      .plan {
+        padding-right: 25px;
+        line-height: 24px;
+      }
+      .plan-name {
+        font-weight: 900;
+        color: $dark-blue;
+      }
+      .price {
+        color: $desaturated-blue;
+      }
+      .change {
+        align-self: center;
+        font-weight: map-get($font-weights, bold-700);
+        font-size: 15px;
+        &:hover {
+          text-decoration: none;
+          opacity: 60%;
+        }
+      }
+    }
+    .button {
+      @include flex-center(column, center, space-between);
+      margin-top: 25px;
+      .payment-btn {
+        background-color: $bright-blue;
+        text-align: center;
+        color: white;
+        padding: 16px 68px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: map-get($map: $font-weights, $key: bold-700);
+        // font-size: 14px;
+        box-shadow: 0.2px 0.4px 4.7px rgba(0, 0, 0, 0.016),
+          0.4px 0.8px 7.9px rgba(0, 0, 0, 0.024),
+          0.7px 1.4px 9.6px rgba(0, 0, 0, 0.031),
+          1px 2.2px 10.4px rgba(0, 0, 0, 0.037),
+          1.5px 3.2px 10.9px rgba(0, 0, 0, 0.043),
+          2.2px 4.7px 12.8px rgba(0, 0, 0, 0.05),
+          3.3px 7px 19.1px rgba(0, 0, 0, 0.059),
+          5.3px 11.2px 34.1px rgba(0, 0, 0, 0.069),
+          10px 21px 62px rgba(0, 0, 0, 0.09);
+        &:hover {
+          opacity: 70%;
+        }
+      }
+      .cancel-btn {
+        margin: 25px 0px 25px 0px;
+        text-decoration: none;
+        font-weight: map-get($map: $font-weights, $key: black-900);
+        color: $desaturated-blue;
+        &:hover {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: $desktop-width) {
+  .container {
+    max-width: 400px;
+    .card {
+      .order-summary {
+        margin: 20px 5px;
+      }
+      .order-summary h2 {
+        margin: 30px 0px 10px 0px;
+      }
+      .order-summary p{
+        margin: 10px 10px;
+      }
+      .flex {
+        padding: 20px;
+        margin: 10px 35px;
+      }
+      .plan {
+        line-height: 24px;
+      }
+      .button {
+        margin-top: 25px;
+        .payment-btn {
+          padding: 12px 71px;
+          margin: 5px 10px 10px 10px;
+        }
+        .cancel-btn {
+          margin: 10px 50px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
